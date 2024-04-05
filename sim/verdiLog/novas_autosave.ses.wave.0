@@ -1,0 +1,72 @@
+Magic 271485
+Revision Verdi_O-2018.09-SP2-2
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort 0 28 1834 860 205 65
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / "" "/tmp/.X11-unix/AHB_SRAM/sim/AHB_SRAM.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 0.000000 320.039062
+cursor 0.000000
+marker 0.000000
+
+; user define markers
+; userMarker time_pos marker_name color linestyle
+; visible top row signal index
+top 0
+; marker line index
+markerPos 12
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByChange
+
+
+addGroup "G1"
+activeDirFile "" "/tmp/.X11-unix/AHB_SRAM/sim/AHB_SRAM.fsdb"
+addSignal -h 20 /AHB_SRAM_tb/hclk
+addSignal -h 20 -holdScope sram_clk
+addSignal -h 20 -holdScope hrst_n
+addSignal -h 20 -holdScope bist_en
+addSignal -h 20 -holdScope hsel
+addSignal -h 20 -holdScope hready
+addSignal -h 20 -holdScope hsize[2:0]
+addSignal -h 20 -holdScope htrans[1:0]
+addSignal -h 20 -holdScope hburst[2:0]
+addSignal -h 20 -holdScope hwrite
+addSignal -h 20 -holdScope haddr[31:0]
+addSignal -h 20 -holdScope hrdata[31:0]
+addSignal -h 20 -holdScope data_temp[31:0]
+addSignal -h 20 -holdScope hwdata[31:0]
+addSignal -h 20 -holdScope hresp[1:0]
+addSignal -h 20 -holdScope hready_out
+addSignal -h 20 -holdScope bist_done
+addSignal -h 20 -holdScope bist_fail
+addGroup "G2"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+

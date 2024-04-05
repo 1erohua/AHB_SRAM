@@ -1,0 +1,50 @@
+module bist_sram_tb;
+
+    reg                       sram_clk;
+    reg                       sram_rst_n;
+    reg                       bist_en;
+
+    reg   [12:0]              sram_addr;
+    reg   [7:0]               sram_wdata;
+    reg                       sram_wen;
+    reg                       sram_csn;
+
+    wire  [7:0]               sram_rdata;
+    wire                      b_done;
+    wire                      b_fail;       
+
+    bist_sram b1(
+        .sram_clk(sram_clk),   
+        .sram_rst_n(sram_rst_n),
+        .bist_en(bist_en),        
+             
+        .sram_addr(sram_addr),
+        .sram_wdata(sram_wdata), 
+        .sram_wen(sram_wen),
+        .sram_csn(sram_csn),
+             
+        .sram_rdata(sram_rdata),
+        .b_done(b_done),
+        .b_fail(b_fail)
+    );
+
+    initial begin 
+        $fsdbDumpfile("bist_sram.fsdb");
+        $fsdbDumpvars();
+        $fsdbDumpMDA();
+    end
+
+    initial begin
+        sram_clk = 0;
+        sram_rst_n = 0;
+        bist_en = 0;
+
+        #10 sram_rst_n = 1;
+            bist_en = 1;
+
+        #1400000 $finish;
+    end
+
+    always #20 sram_clk <= ~sram_clk;
+
+endmodule
