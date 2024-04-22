@@ -14,6 +14,6 @@ run_verdi:
 	verdi -nologo	-sv 	-f 	$(FILE_LIST)	-ssf $(TEST_NAME).fsdb	 &
 
 clean:
-	rm -rf csrc DVEfiles simv simv.daidir ucli.key novas*	VCS* *dat
+	rm -rf *fsdb*  *csrc* DVEfiles simv simv.daidir ucli.key novas* VCS* *dat xvlog* *.log ./../rtl/xvlog* ./../tb/xvlog*  verdiLog xsim.dir ./../rtl/xsim.dir ./../tb/xsim.dir
 
 	
